@@ -16,7 +16,7 @@ class SendGmail {
             secureConnection: false,
             auth: {
                  user: 'vsrecepti@gmail.com',
-                 pass: 'iefwbqxwertveunu',  // this password must be generated from google account https://support.google.com/mail/answer/185833?hl=ru 
+                 pass: '',  // this password must be generated from google account https://support.google.com/mail/answer/185833?hl=ru 
             },
             tls: {
                 rejectUnauthorized: true
