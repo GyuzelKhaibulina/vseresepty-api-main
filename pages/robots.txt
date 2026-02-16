@@ -1,0 +1,12 @@
+# *
+User-agent: *
+Allow: /*recipes/
+
+Disallow: /*auth/
+Disallow: /*users
+
+# Host
+Host: https://vseresepty.ru
+
+# Sitemaps
+Sitemap: https://vseresepty.ru/sitemap.xml

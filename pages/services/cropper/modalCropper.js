@@ -1,0 +1,47 @@
+import { useEffect } from 'react';
+import ImageCropper from "./image-cropper";
+
+const Modal = ({ isVisible = false, clickBtn, btnCropId, pathToSave, title, content, footer, onClose, closeModal, imgId, canvasId }) => {
+    const keydownHandler = ({ key }) => {
+        switch (key) {
+          case 'Escape':
+            onClose();
+            break;
+          default:
+        }
+      };
+    
+      useEffect(() => {
+        document.addEventListener('keydown', keydownHandler);
+        return () => document.removeEventListener('keydown', keydownHandler);
+      });
+
+
+    return !isVisible ? null : (
+      <div className="modal" onClick={onClose}>
+        <div className="modal-dialog-wrap" onClick={e => e.stopPropagation()}>
+          <div className="modal-header">
+            <h3 className="modal-title">{title}</h3>
+            <span className="modal-close" onClick={onClose}>
+            </span>
+          </div>
+          <div className="modal-body pd-b-20">
+            <div className="modal-content">{content}</div>
+          </div>          
+              <ImageCropper
+                imgId= {imgId}
+                canvasId={canvasId}
+                btnCropId={btnCropId}
+                closeModal={closeModal}
+                pathToSave = {pathToSave}
+                clickBtn = {clickBtn}
+                text = "Обрезать фото : "
+              />       
+            {footer && <div className="modal-footer">{footer}</div>}
+        </div>
+      </div> 
+   
+    );
+  };
+
+  export default Modal;
